@@ -42,7 +42,7 @@ export default function MobileNav() {
                     />
 
                     {/* Drawer */}
-                    <div className="relative ml-auto h-full w-[80%] max-w-sm bg-white dark:bg-zinc-900 border-l border-zinc-200 dark:border-zinc-800 p-8 shadow-2xl flex flex-col animate-in slide-in-from-right duration-300 ease-out">
+                    <div className="relative ml-auto h-full w-[85%] max-w-sm bg-white dark:bg-zinc-900 border-l border-zinc-200 dark:border-zinc-800 p-8 shadow-2xl flex flex-col animate-in slide-in-from-right duration-300 ease-out z-[101]">
                         <div className="flex justify-end mb-12">
                             <button
                                 onClick={() => setIsOpen(false)}
