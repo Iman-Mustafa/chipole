@@ -1,27 +1,45 @@
 import Image from "next/image";
+import ImageSlider from "@/app/components/ImageSlider";
+import LanguageSelector from "@/app/components/LanguageSelector";
+
+const craftImages = [
+  "/images/IMG_4164.jpg",
+  "/images/IMG_4184.jpg",
+  "/images/IMG_4192.jpg",
+  "/images/IMG_4199.jpg",
+  "/images/IMG_4200.jpg",
+  "/images/IMG_4203.jpg",
+  "/images/IMG_4204.jpg",
+  "/images/IMG_4216.jpg",
+  "/images/IMG_4250.jpg",
+  "/images/PD_33_File_007.jpg",
+  "/images/Screenshot 2026-03-02 133437.jpg",
+  "/images/chipole.jpg",
+  "/images/img.jpg",
+];
 
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100">
       {/* Top Banner Branding */}
-      <header className="relative w-full bg-white dark:bg-zinc-900 pt-12 pb-6 px-8 text-center sm:text-left">
-        <div className="absolute top-4 right-8">
+      <header className="relative w-full bg-white dark:bg-zinc-900 pt-20 pb-6 px-4 sm:pt-12 sm:px-8 text-center sm:text-left">
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 sm:right-8 sm:left-auto sm:translate-x-0">
           <Image
             src="/logo/chipole_logo.png"
             alt="Chipole Logo"
-            width={120}
-            height={120}
-            className="object-contain"
+            width={80}
+            height={80}
+            className="object-contain sm:w-[120px] sm:h-[120px]"
             priority
           />
         </div>
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-6xl text-zinc-800 dark:text-white max-w-5xl">
+        <h1 className="text-2xl font-bold tracking-tighter sm:text-5xl lg:text-6xl text-zinc-800 dark:text-white max-w-5xl mx-auto sm:mx-0">
           BENEDICTINE SISTERS OF ST AGNES, CHIPOLE
         </h1>
       </header>
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-40 flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-4 border-y border-zinc-200 bg-white/80 px-8 py-4 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80">
+      <nav className="sticky top-0 z-40 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-4 border-y border-zinc-200 bg-white/80 px-4 py-4 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80 sm:gap-x-8 sm:px-8">
         <NavUrl href="#" active>Home</NavUrl>
         <NavUrl href="#">Our Mission</NavUrl>
         <NavUrl href="#">Health Care</NavUrl>
@@ -29,14 +47,12 @@ export default function Home() {
         <NavUrl href="#">Development Programs</NavUrl>
         <NavUrl href="#">Enterprises</NavUrl>
         <NavUrl href="#" highlight>Please Donate!</NavUrl>
-        <div className="flex items-center gap-2 text-sm font-bold">
-          <span className="opacity-60">🇬🇧 English</span>
-        </div>
+        <LanguageSelector />
       </nav>
 
-      <main className="mx-auto max-w-7xl px-8 py-12">
+      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-12">
         {/* Visual Hero Area */}
-        <div className="relative mb-16 aspect-[21/9] w-full overflow-hidden rounded-3xl bg-zinc-200 dark:bg-zinc-800 shadow-2xl">
+        <div className="relative mb-12 aspect-square w-full overflow-hidden rounded-2xl bg-zinc-200 dark:bg-zinc-800 shadow-2xl sm:mb-16 sm:aspect-[21/9] sm:rounded-3xl">
           <Image
             src="/images/chipole.jpg"
             alt="Chipole Sisters Hero"
@@ -48,10 +64,10 @@ export default function Home() {
         </div>
 
         {/* Welcome Section */}
-        <section className="mb-20 max-w-4xl">
+        <section className="mb-12 max-w-4xl sm:mb-20">
           <h2 className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-red">Home</h2>
-          <div className="space-y-6 text-lg leading-relaxed">
-            <p className="font-bold text-zinc-800 dark:text-white text-2xl">
+          <div className="space-y-6 text-base leading-relaxed sm:text-lg">
+            <p className="font-bold text-zinc-800 dark:text-white text-xl sm:text-2xl">
               A special welcome from our Mother Superior, Sr. Beatrice Simon Kapinga OSB
             </p>
             <p className="italic text-zinc-600 dark:text-zinc-400">
@@ -68,35 +84,36 @@ export default function Home() {
           </div>
         </section>
 
-        <hr className="mb-16 border-zinc-200 dark:border-zinc-800" />
+        <hr className="mb-12 border-zinc-200 dark:border-zinc-800 sm:mb-16" />
 
         {/* Self-Sufficiency Section */}
-        <section className="mb-24 grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <section className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-2 sm:mb-24 sm:gap-12">
           <div>
-            <h3 className="mb-6 text-3xl font-bold tracking-tight">The Benedictine Tradition of Self-Sufficiency</h3>
-            <div className="space-y-4 text-zinc-600 dark:text-zinc-400">
+            <h3 className="mb-4 text-2xl font-bold tracking-tight sm:mb-6 sm:text-3xl">The Benedictine Tradition of Self-Sufficiency</h3>
+            <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400 sm:text-base">
               <p>Almost all of our basic daily needs are met by members of our community. We farm: planting, cultivating and harvesting both our food crops and all necessary staple crops in our gardens. All by hand but most rewarding, because the work is carried out as a community.</p>
               <p>Our dairy cattle, poultry and hog raising are devotedly carried on daily by our Sisters. Candle making, Hosts, sewing Mass vestments & many other crafts provide additional support.</p>
             </div>
           </div>
-          <div className="rounded-3xl bg-zinc-100 p-8 dark:bg-zinc-900/50 glass border border-white/10 shadow-xl">
-            <div className="h-full w-full rounded-2xl bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center p-8 text-center">
-              <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest">
-                Supporting Community through<br />Crafts & Production
+          <div className="rounded-2xl bg-zinc-100 overflow-hidden dark:bg-zinc-900/50 glass border border-white/10 shadow-xl aspect-video relative sm:rounded-3xl">
+            <ImageSlider images={craftImages} />
+            <div className="absolute top-4 left-4 z-10">
+              <p className="text-[10px] font-black text-white uppercase tracking-[0.3em] bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                Community Life
               </p>
             </div>
           </div>
         </section>
 
         {/* Comments Section */}
-        <section className="mx-auto max-w-3xl rounded-3xl border border-zinc-200 p-8 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/30">
-          <h3 className="mb-8 text-2xl font-bold">Leave a Reply</h3>
+        <section className="mx-auto max-w-3xl rounded-2xl border border-zinc-200 p-6 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/30 sm:rounded-3xl sm:p-8">
+          <h3 className="mb-6 text-xl font-bold sm:mb-8 sm:text-2xl">Leave a Reply</h3>
           <form className="space-y-6">
             <div>
               <label className="form-label">Comment *</label>
-              <textarea className="form-input min-h-[160px]" required />
+              <textarea className="form-input min-h-[120px] sm:min-h-[160px]" required />
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
               <div>
                 <label className="form-label">Name *</label>
                 <input type="text" className="form-input" required />
@@ -110,7 +127,7 @@ export default function Home() {
                 <input type="url" className="form-input" />
               </div>
             </div>
-            <button className="rounded-lg bg-zinc-900 px-8 py-3 text-sm font-bold text-white transition-all hover:bg-zinc-800 dark:bg-white dark:text-black">
+            <button className="w-full rounded-lg bg-zinc-900 px-8 py-3 text-sm font-bold text-white transition-all hover:bg-zinc-800 dark:bg-white dark:text-black sm:w-auto">
               Post Comment
             </button>
           </form>
@@ -118,8 +135,8 @@ export default function Home() {
       </main>
 
       {/* Detailed Footer */}
-      <footer className="mt-20 border-t border-zinc-200 bg-zinc-100 py-20 px-8 dark:border-zinc-800 dark:bg-zinc-900/50">
-        <div className="mx-auto max-w-7xl grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      <footer className="mt-12 border-t border-zinc-200 bg-zinc-100 py-12 px-4 dark:border-zinc-800 dark:bg-zinc-900/50 sm:mt-20 sm:py-20 sm:px-8">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 sm:gap-12">
           <FooterSection title="Postal Address">
             <address className="not-italic text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
               <p>St. Agnes Convent, Chipole</p>
