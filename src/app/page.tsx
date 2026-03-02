@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ImageSlider from "@/app/components/ImageSlider";
 import LanguageSelector from "@/app/components/LanguageSelector";
+import MobileNav from "@/app/components/MobileNav";
 
 const craftImages = [
   "/images/IMG_4164.jpg",
@@ -22,31 +23,35 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100">
       {/* Top Banner Branding */}
-      <header className="relative w-full bg-white dark:bg-zinc-900 pt-20 pb-6 px-4 sm:pt-12 sm:px-8 text-center sm:text-left">
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 sm:right-8 sm:left-auto sm:translate-x-0">
+      <header className="relative w-full bg-white dark:bg-zinc-900 pt-12 pb-8 px-4 sm:pt-12 sm:px-8 flex flex-col items-center sm:block">
+        <h1 className="text-2xl font-bold tracking-tighter text-center sm:text-left sm:text-5xl lg:text-6xl text-zinc-800 dark:text-white max-w-5xl mb-6 sm:mb-0">
+          BENEDICTINE SISTERS OF ST AGNES, CHIPOLE
+        </h1>
+        <div className="sm:absolute sm:top-4 sm:right-8">
           <Image
             src="/logo/chipole_logo.png"
             alt="Chipole Logo"
-            width={80}
-            height={80}
+            width={100}
+            height={100}
             className="object-contain sm:w-[120px] sm:h-[120px]"
             priority
           />
         </div>
-        <h1 className="text-2xl font-bold tracking-tighter sm:text-5xl lg:text-6xl text-zinc-800 dark:text-white max-w-5xl mx-auto sm:mx-0">
-          BENEDICTINE SISTERS OF ST AGNES, CHIPOLE
-        </h1>
       </header>
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-40 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-4 border-y border-zinc-200 bg-white/80 px-4 py-4 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80 sm:gap-x-8 sm:px-8">
-        <NavUrl href="#" active>Home</NavUrl>
-        <NavUrl href="#">Our Mission</NavUrl>
-        <NavUrl href="#">Health Care</NavUrl>
-        <NavUrl href="#">Education</NavUrl>
-        <NavUrl href="#">Development Programs</NavUrl>
-        <NavUrl href="#">Enterprises</NavUrl>
-        <NavUrl href="#" highlight>Please Donate!</NavUrl>
+      <nav className="sticky top-0 z-40 flex w-full items-center justify-between sm:justify-center border-y border-zinc-200 bg-white/80 px-4 py-4 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80">
+        <div className="hidden sm:flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+          <NavUrl href="#" active>Home</NavUrl>
+          <NavUrl href="#">Our Mission</NavUrl>
+          <NavUrl href="#">Health Care</NavUrl>
+          <NavUrl href="#">Education</NavUrl>
+          <NavUrl href="#">Development Programs</NavUrl>
+          <NavUrl href="#">Enterprises</NavUrl>
+          <NavUrl href="#" highlight>Please Donate!</NavUrl>
+        </div>
+
+        <MobileNav />
         <LanguageSelector />
       </nav>
 
@@ -186,6 +191,7 @@ export default function Home() {
           <FooterSection title="Categories">
             <select className="form-input py-2 text-sm bg-white dark:bg-zinc-900 cursor-pointer">
               <option>Select Category</option>
+              <option>Enterprises</option>
             </select>
           </FooterSection>
         </div>
