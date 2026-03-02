@@ -51,9 +51,9 @@ export default function Home() {
           <NavUrl href="#" highlight>Please Donate!</NavUrl>
         </div>
 
-        <div className="flex items-center gap-6 sm:ml-10">
-          <MobileNav />
+        <div className="flex items-center gap-4 ml-auto sm:ml-10">
           <LanguageSelector />
+          <MobileNav />
         </div>
       </nav>
 

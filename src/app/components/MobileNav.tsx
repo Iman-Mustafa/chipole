@@ -26,7 +26,7 @@ export default function MobileNav() {
         <div className="sm:hidden">
             <button
                 onClick={() => setIsOpen(true)}
-                className="p-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                className="flex items-center justify-center h-11 w-11 rounded-xl bg-zinc-100/80 dark:bg-zinc-800/80 border border-zinc-200/50 dark:border-zinc-700/50 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all hover:bg-zinc-200 dark:hover:bg-zinc-700 active:scale-95 shadow-sm backdrop-blur-sm"
                 aria-label="Open Menu"
             >
                 <Menu className="h-6 w-6" />
@@ -60,8 +60,8 @@ export default function MobileNav() {
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
                                     className={`text-xl font-bold transition-all hover:scale-105 active:scale-95 ${link.highlight
-                                            ? "text-brand-red border-b-2 border-brand-red pb-1"
-                                            : "text-zinc-800 dark:text-zinc-200 hover:text-brand-red"
+                                        ? "text-brand-red border-b-2 border-brand-red pb-1"
+                                        : "text-zinc-800 dark:text-zinc-200 hover:text-brand-red"
                                         }`}
                                 >
                                     {link.label}
