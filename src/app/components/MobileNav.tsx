@@ -32,37 +32,35 @@ export default function MobileNav() {
                 <Menu className="h-6 w-6" />
             </button>
 
-            {/* Overlay and Drawer */}
+            {/* Overlay and Centered Dialog */}
             {isOpen && (
-                <div className="fixed inset-0 z-[100] flex">
+                <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
                     {/* Backdrop */}
                     <div
-                        className="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-300"
+                        className="absolute inset-0 bg-black/70 backdrop-blur-md"
                         onClick={() => setIsOpen(false)}
                     />
 
-                    {/* Drawer */}
+                    {/* Dialog Panel */}
                     <div
-                        className={`relative ml-auto h-full w-[85%] max-w-sm border-l p-8 flex flex-col transition-transform duration-300 ease-out z-[102] bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 shadow-[0_0_50px_rgba(0,0,0,0.3)] ${isOpen ? "translate-x-0" : "translate-x-full"
-                            }`}
+                        className="relative w-full max-w-sm bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col items-center border border-zinc-200 dark:border-zinc-800 animate-in fade-in zoom-in duration-200"
+                        style={{ backgroundColor: '#ffffff' }} // Force white for light mode fallback
                     >
-                        <div className="flex justify-end mb-12">
-                            <button
-                                onClick={() => setIsOpen(false)}
-                                className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all"
-                                aria-label="Close Menu"
-                            >
-                                <X className="h-6 w-6" />
-                            </button>
-                        </div>
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="absolute top-4 right-4 p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all"
+                            aria-label="Close Menu"
+                        >
+                            <X className="h-6 w-6" />
+                        </button>
 
-                        <nav className="flex flex-col gap-6 items-center">
+                        <nav className="flex flex-col gap-8 items-center mt-4 w-full">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.label}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className={`text-xl font-bold transition-all hover:scale-105 active:scale-95 ${link.highlight
+                                    className={`text-2xl font-bold transition-all hover:scale-105 active:scale-95 ${link.highlight
                                         ? "text-brand-red border-b-2 border-brand-red pb-1"
                                         : "text-zinc-800 dark:text-zinc-200 hover:text-brand-red"
                                         }`}
@@ -72,13 +70,13 @@ export default function MobileNav() {
                             ))}
                         </nav>
 
-                        <div className="mt-auto pt-12 border-t border-zinc-100 dark:border-zinc-800 text-center">
+                        <div className="mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-800 text-center w-full">
                             <p className="text-sm font-medium text-zinc-500 mb-6">
                                 St. Agnes Convent, Chipole
                             </p>
-                            <div className="flex justify-center items-center gap-6">
-                                <button className="text-sm font-bold text-zinc-900 dark:text-white border-b-2 border-brand-red pb-0.5">English</button>
-                                <button className="text-sm font-bold text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Swahili</button>
+                            <div className="flex justify-center items-center gap-8">
+                                <button className="text-base font-bold text-zinc-900 dark:text-white border-b-2 border-brand-red pb-0.5">English</button>
+                                <button className="text-base font-bold text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors">Swahili</button>
                             </div>
                         </div>
                     </div>
