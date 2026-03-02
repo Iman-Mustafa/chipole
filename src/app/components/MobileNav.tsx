@@ -37,15 +37,14 @@ export default function MobileNav() {
                 <div className="fixed inset-0 z-[100] flex">
                     {/* Backdrop */}
                     <div
-                        className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300"
+                        className="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-300"
                         onClick={() => setIsOpen(false)}
                     />
 
                     {/* Drawer */}
                     <div
-                        className={`relative ml-auto h-full w-[85%] max-w-sm border-l p-8 shadow-2xl flex flex-col transition-transform duration-300 ease-out z-[101] bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 ${isOpen ? "translate-x-0" : "translate-x-full"
+                        className={`relative ml-auto h-full w-[85%] max-w-sm border-l p-8 flex flex-col transition-transform duration-300 ease-out z-[102] bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 shadow-[0_0_50px_rgba(0,0,0,0.3)] ${isOpen ? "translate-x-0" : "translate-x-full"
                             }`}
-                        style={{ backgroundColor: 'var(--background)' }}
                     >
                         <div className="flex justify-end mb-12">
                             <button
