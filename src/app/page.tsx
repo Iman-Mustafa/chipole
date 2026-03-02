@@ -4,7 +4,17 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100">
       {/* Top Banner Branding */}
-      <header className="w-full bg-white dark:bg-zinc-900 pt-12 pb-6 px-8 text-center sm:text-left">
+      <header className="relative w-full bg-white dark:bg-zinc-900 pt-12 pb-6 px-8 text-center sm:text-left">
+        <div className="absolute top-4 right-8">
+          <Image
+            src="/logo/chipole_logo.png"
+            alt="Chipole Logo"
+            width={120}
+            height={120}
+            className="object-contain"
+            priority
+          />
+        </div>
         <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-6xl text-zinc-800 dark:text-white max-w-5xl">
           BENEDICTINE SISTERS OF ST AGNES, CHIPOLE
         </h1>
@@ -28,10 +38,11 @@ export default function Home() {
         {/* Visual Hero Area */}
         <div className="relative mb-16 aspect-[21/9] w-full overflow-hidden rounded-3xl bg-zinc-200 dark:bg-zinc-800 shadow-2xl">
           <Image
-            src="/C:\Users\imanm\.gemini\antigravity\brain\164657de-3115-4bf8-9425-d2122684241e\chipole_sisters_hero_placeholder_1772018697509.png"
+            src="/images/chipole.jpg"
             alt="Chipole Sisters Hero"
             fill
-            className="object-cover opacity-80"
+            className="object-cover opacity-100"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
