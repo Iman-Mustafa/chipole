@@ -16,7 +16,12 @@ export const metadata: Metadata = {
   title: "Benedictine Sisters of St Agnes, Chipole",
   description: "A growing community of Benedictine Nuns in Chipole, Tanzania.",
   icons: {
-    icon: "/logo/chipole_logo.png",
+    icon: [
+      { url: "/logo/chipole_logo.png" },
+      { url: "/logo/chipole_logo.png", sizes: "32x32" },
+      { url: "/logo/chipole_logo.png", sizes: "16x16" },
+    ],
+    apple: "/logo/chipole_logo.png",
   },
 };
 

@@ -15,24 +15,11 @@ const craftImages = [
   "/images/sisters4.jpeg",
   "/images/sisters5.jpeg",
   "/images/trousers.jpeg",
-  "/images/IMG_4164.jpg",
-  "/images/IMG_4184.jpg",
-  "/images/IMG_4192.jpg",
-  "/images/IMG_4199.jpg",
-  "/images/IMG_4200.jpg",
-  "/images/IMG_4203.jpg",
-  "/images/IMG_4204.jpg",
-  "/images/IMG_4216.jpg",
-  "/images/IMG_4250.jpg",
-  "/images/PD_33_File_007.jpg",
-  "/images/Screenshot 2026-03-02 133437.jpg",
-  "/images/chipole.jpg",
-  "/images/img.jpg",
 ];
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100">
+    <div id="home" className="relative min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100">
       {/* Top Banner Branding */}
       <header className="relative w-full bg-white dark:bg-zinc-900 pt-12 pb-10 px-4 sm:pt-16 sm:px-8 flex flex-col items-center justify-center border-b border-zinc-100 dark:border-zinc-800/50">
         <h1 className="text-3xl font-extrabold tracking-tighter text-center sm:text-5xl lg:text-7xl text-zinc-800 dark:text-white max-w-6xl mb-8 leading-tight">
@@ -53,13 +40,13 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-40 flex w-full items-center justify-between sm:justify-center border-y border-zinc-200 bg-white/95 px-6 py-4 backdrop-blur-md dark:border-zinc-800 dark:bg-black/95">
         <div className="hidden sm:flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          <NavUrl href="#" active>Home</NavUrl>
-          <NavUrl href="#">Our Mission</NavUrl>
-          <NavUrl href="#">Health Care</NavUrl>
-          <NavUrl href="#">Education</NavUrl>
-          <NavUrl href="#">Development Programs</NavUrl>
-          <NavUrl href="#">Enterprises</NavUrl>
-          <NavUrl href="#" highlight>Please Donate!</NavUrl>
+          <NavUrl href="#home" active>Home</NavUrl>
+          <NavUrl href="#mission">Our Mission</NavUrl>
+          <NavUrl href="#health">Health Care</NavUrl>
+          <NavUrl href="#education">Education</NavUrl>
+          <NavUrl href="#development">Development Programs</NavUrl>
+          <NavUrl href="#crafts">Enterprises</NavUrl>
+          <NavUrl href="#donate" highlight>Please Donate!</NavUrl>
         </div>
 
         <div className="flex items-center gap-4 ml-auto sm:ml-10">
@@ -81,15 +68,16 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
 
-        {/* Welcome Section */}
-        <section className="mb-12 max-w-4xl sm:mb-20">
-          <h2 className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-red">Home</h2>
+        {/* Welcome / Mission Section */}
+        <section id="mission" className="mb-12 max-w-4xl sm:mb-20 scroll-mt-24 reveal">
+          <h2 className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-red">Our Mission</h2>
           <div className="space-y-6 text-base leading-relaxed sm:text-lg">
-            <p className="font-bold text-zinc-800 dark:text-white text-xl sm:text-2xl">
-              A special welcome from our Mother Superior, Sr. Beatrice Simon Kapinga OSB
+            <p className="font-bold text-zinc-800 dark:text-white text-xl sm:text-3xl tracking-tight leading-tight">
+              A community of Benedictine Nuns dedicated to prayer and service in African environments.
             </p>
-            <p className="italic text-zinc-600 dark:text-zinc-400">
-              I am very happy that you have taken the time to learn about us. We are a growing community of Benedictine Nuns.
+            <p className="italic text-zinc-600 dark:text-zinc-400 border-l-4 border-brand-red pl-6 py-2">
+              "I am very happy that you have taken the time to learn about us. We are a growing community of Benedictine Nuns. We follow the Rule of St. Benedict, seeking God through prayer and work (Ora et Labora)."
+              <span className="block mt-2 font-bold not-italic text-sm text-zinc-800 dark:text-white">— Sr. Beatrice Simon Kapinga OSB, Mother Superior</span>
             </p>
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <StatItem value="350+" label="in Final Profession" dot="bg-brand-red" />
@@ -104,8 +92,43 @@ export default function Home() {
 
         <hr className="mb-12 border-zinc-200 dark:border-zinc-800 sm:mb-16" />
 
-        {/* Self-Sufficiency Section */}
-        <section className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-2 sm:mb-24 sm:gap-12">
+        {/* Health Care Section */}
+        <section id="health" className="mb-16 sm:mb-24 scroll-mt-24 reveal">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-center">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+              <Image src="/images/sisters3.jpeg" alt="Health Care Services" fill className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">
+                <div>
+                  <h4 className="text-white font-bold text-xl">St. Benedict's Hospital</h4>
+                  <p className="text-white/80 text-sm">Providing quality care since 1950</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-brand-red">Health Care</h2>
+              <h3 className="text-3xl font-bold tracking-tight sm:text-4xl">Healing with Compassion</h3>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Our medical mission is centered at St. Benedict's Hospital in Chipole, supported by several rural health centers across the region. We provide essential medical services, maternity care, and specialized clinics to thousands of people in need.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-green" /> 150-bed referral hospital
+                </li>
+                <li className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-green" /> Dedicated Maternity and Child Wellness Center
+                </li>
+                <li className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-green" /> HIV/AIDS Outreach and Education
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <hr className="mb-12 border-zinc-200 dark:border-zinc-800 sm:mb-16" />
+
+        {/* Self-Sufficiency / Enterprises Section */}
+        <section id="crafts" className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-2 sm:mb-24 sm:gap-12 scroll-mt-24 reveal">
           <div>
             <h3 className="mb-4 text-2xl font-bold tracking-tight sm:mb-6 sm:text-3xl">The Benedictine Tradition of Self-Sufficiency</h3>
             <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400 sm:text-base">
@@ -122,6 +145,85 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <hr className="mb-12 border-zinc-200 dark:border-zinc-800 sm:mb-16" />
+
+        {/* Education Section */}
+        <section id="education" className="mb-16 sm:mb-24 scroll-mt-24 reveal">
+          <div className="flex flex-col lg:flex-row-reverse gap-12 items-center">
+            <div className="lg:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+              <Image src="/images/sisters4.jpeg" alt="Education Services" fill className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">
+                <div>
+                  <h4 className="text-white font-bold text-xl">St. Agnes Schools</h4>
+                  <p className="text-white/80 text-sm">Nurturing the next generation</p>
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-1/2 space-y-6">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-brand-red">Education</h2>
+              <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-left">Forming Hearts and Minds</h3>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed text-left">
+                Education is one of our primary ministries. We manage and staff several schools, from nursery to secondary levels, ensuring that children in rural areas have access to high-quality education in a supportive, moral environment.
+              </p>
+              <div className="flex flex-wrap justify-start gap-4">
+                <div className="bg-white dark:bg-zinc-900 px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 text-sm font-bold shadow-sm">St. Agnes Nursery</div>
+                <div className="bg-white dark:bg-zinc-900 px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 text-sm font-bold shadow-sm">Primary School</div>
+                <div className="bg-white dark:bg-zinc-900 px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 text-sm font-bold shadow-sm">Secondary Education</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr className="mb-12 border-zinc-200 dark:border-zinc-800 sm:mb-16" />
+
+        {/* Development Programs Section */}
+        <section id="development" className="mb-16 sm:mb-24 scroll-mt-24 reveal">
+          <h2 className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-red text-center">Development Programs</h2>
+          <h3 className="mb-8 text-3xl font-bold tracking-tight text-center sm:text-4xl">Empowering the Community</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl hover:scale-[1.02] transition-transform">
+              <div className="h-12 w-12 bg-brand-red/10 rounded-2xl flex items-center justify-center mb-6 text-brand-red text-2xl">🌱</div>
+              <h4 className="text-xl font-bold mb-4">Agriculture</h4>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Teaching sustainable farming techniques to local families to ensure food security.</p>
+            </div>
+            <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl hover:scale-[1.02] transition-transform">
+              <div className="h-12 w-12 bg-brand-gold/10 rounded-2xl flex items-center justify-center mb-6 text-brand-gold text-2xl">💧</div>
+              <h4 className="text-xl font-bold mb-4">Clean Water</h4>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Implementing water projects to provide safe drinking water to surrounding villages.</p>
+            </div>
+            <div className="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl hover:scale-[1.02] transition-transform">
+              <div className="h-12 w-12 bg-brand-green/10 rounded-2xl flex items-center justify-center mb-6 text-brand-green text-2xl">⚡</div>
+              <h4 className="text-xl font-bold mb-4">Renewable Energy</h4>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Exploring solar and biogas solutions to power our hospital and community centers.</p>
+            </div>
+          </div>
+        </section>
+
+        <hr className="mb-12 border-zinc-200 dark:border-zinc-800 sm:mb-16" />
+
+        {/* Donation CTA Section */}
+        <section id="donate" className="mb-16 py-16 px-8 rounded-[2rem] bg-zinc-900 dark:bg-brand-red/10 text-white text-center overflow-hidden relative sm:mb-24 scroll-mt-24 reveal">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10">
+            <Image src="/images/farm.jpeg" alt="Background" fill className="object-cover" />
+          </div>
+          <div className="relative z-10 max-w-2xl mx-auto space-y-8">
+            <h2 className="text-4xl font-extrabold tracking-tighter sm:text-6xl">Your Support Makes a Difference</h2>
+            <p className="text-lg text-zinc-300">
+              The Benedictine Sisters rely on the generosity of people like you to continue our missions in health, education, and development. Every contribution, large or small, helps us serve those in need.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-10 rounded-xl text-lg transition-all shadow-lg hover:shadow-brand-red/20 outline-none">
+                Donate Online
+              </button>
+              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold py-4 px-10 rounded-xl text-lg transition-all flex items-center justify-center gap-2">
+                 <span>Learn Other Ways to Help</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <hr className="mb-12 border-zinc-200 dark:border-zinc-800 sm:mb-16" />
 
         {/* Comments Section */}
         <section className="mx-auto max-w-3xl rounded-2xl border border-zinc-200 p-6 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/30 sm:rounded-3xl sm:p-8">
@@ -187,7 +289,7 @@ export default function Home() {
 
           <FooterSection title="Donations">
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              To make a donation, <a href="#" className="underline font-bold text-brand-red">click here</a>
+              To make a donation, <a href="#donate" className="underline font-bold text-brand-red transition-colors hover:text-red-700">click here</a>
             </p>
           </FooterSection>
 
@@ -202,9 +304,13 @@ export default function Home() {
           </FooterSection>
 
           <FooterSection title="Categories">
-            <select className="form-input py-2 text-sm bg-white dark:bg-zinc-900 cursor-pointer">
+            <select className="form-input py-2 text-sm bg-white dark:bg-zinc-900 cursor-pointer outline-none transition-all focus:border-brand-red/50">
               <option>Select Category</option>
-              <option>Enterprises</option>
+              <option>Mission & Charism</option>
+              <option>Health Ministries</option>
+              <option>Educational Services</option>
+              <option>Enterprises & Crafts</option>
+              <option>Development Programs</option>
             </select>
           </FooterSection>
         </div>
