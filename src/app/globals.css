@@ -65,58 +65,81 @@ body {
   overflow-x: hidden;
 }
 
-/* Premium Utilities */
+/* Modern v2 UI Utilities */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .dark .glass {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-heavy {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .mesh-gradient {
   background-color: var(--background);
   background-image:
-    radial-gradient(at 0% 0%, rgba(210, 43, 43, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(255, 195, 0, 0.1) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(76, 175, 80, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, rgba(210, 43, 43, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(255, 195, 0, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(76, 175, 80, 0.08) 0px, transparent 50%),
     radial-gradient(at 0% 100%, rgba(210, 43, 43, 0.05) 0px, transparent 50%);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--brand-red), var(--brand-gold));
+  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-gold) 50%, var(--brand-green) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Form Styles */
-.form-input {
-  @apply w-full rounded-lg border border-zinc-200 bg-white/50 px-4 py-3 outline-none transition-all focus:border-brand-red/50 focus:ring-2 focus:ring-brand-red/10 dark:border-zinc-800 dark:bg-black/50;
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
-.form-label {
-  @apply block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-2;
-}
-
-/* Footer Section */
-.footer-title {
-  @apply text-xs font-bold uppercase tracking-widest text-zinc-900 dark:text-white mb-6;
-}
-
-.footer-link {
-  @apply text-sm text-zinc-600 dark:text-zinc-400 transition-colors hover:text-brand-red;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
 @keyframes reveal {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(30px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .reveal {
-  animation: reveal 1s ease-out forwards;
+  opacity: 0;
+  animation: reveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.reveal-delayed {
+  opacity: 0;
+  animation: reveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+}
+
+/* Form Styles */
+.form-input {
+  @apply w-full rounded-2xl border border-zinc-200 bg-white/40 px-6 py-4 outline-none transition-all focus:border-brand-red/50 focus:ring-4 focus:ring-brand-red/5 dark:border-zinc-800 dark:bg-black/40;
+}
+
+.form-label {
+  @apply block text-sm font-bold text-zinc-800 dark:text-zinc-200 mb-3;
+}
+
+/* Layout Utilities */
+.section-padding {
+  @apply py-24 sm:py-32;
+}
+
+.container-wide {
+  @apply mx-auto max-w-7xl px-6 lg:px-8;
 }
