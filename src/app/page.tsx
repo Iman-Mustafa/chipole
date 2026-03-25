@@ -1,28 +1,57 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { HeartPulse, GraduationCap, Sprout, Cross, ArrowRight, Quote } from "lucide-react";
 import ImageSlider from "@/app/components/ImageSlider";
 import LanguageSelector from "@/app/components/LanguageSelector";
 import MobileNav from "@/app/components/MobileNav";
 
-const craftImages = [
-  "/images/3d.jpeg",
-  "/images/farm.jpeg",
-  "/images/garden.jpeg",
-  "/images/hall.jpeg",
-  "/images/hall2.jpeg",
+const heroImages = [
   "/images/sisters.jpeg",
-  "/images/sisters2.jpeg",
   "/images/sisters3.jpeg",
   "/images/sisters4.jpeg",
-  "/images/sisters5.jpeg",
+  "/images/farm.jpeg",
   "/images/trousers.jpeg",
 ];
 
 export default function Home() {
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+
+  // Smart Navbar Scroll Behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false); // Scrolling down
+      } else {
+        setShowNavbar(true); // Scrolling up or at top
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  // Hero Image Rotation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div id="home" className="relative min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 mesh-gradient selection:bg-brand-red selection:text-white">
-      {/* Floating Modern Navigation */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-3rem)] max-w-5xl">
+      {/* Floating Modern Navigation with Smart Behavior */}
+      <nav 
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-3rem)] max-w-5xl transition-transform duration-500 ease-in-out ${
+          showNavbar ? "translate-y-0" : "-translate-y-32"
+        }`}
+      >
         <div className="glass-heavy rounded-full px-6 py-4 flex items-center justify-between shadow-2xl border border-white/20">
           <div className="flex items-center gap-3">
             <Image
@@ -53,25 +82,36 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section with Rotating Slider */}
       <section className="relative h-screen min-h-[700px] w-full flex items-center justify-center overflow-hidden">
-        <Image
-          src="/images/sisters.jpeg"
-          alt="Chipole Sisters Hero"
-          fill
-          className="object-cover scale-105"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-zinc-50 dark:to-black" />
+        {heroImages.map((img, idx) => (
+          <div 
+            key={img} 
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              currentHeroIndex === idx ? "opacity-100 scale-105" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={img}
+              alt={`Hero ${idx}`}
+              fill
+              className="object-cover"
+              priority={idx === 0}
+            />
+          </div>
+        ))}
+        
+        {/* Visibility Gradient for Navbar */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-zinc-50 dark:to-black" />
         
         <div className="container-wide relative z-10 text-center space-y-8 reveal">
           <div className="inline-block px-4 py-2 rounded-full glass border border-white/20 text-white text-xs font-bold uppercase tracking-[0.3em] mb-4">
             Since 1945
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white leading-[0.9] max-w-5xl mx-auto">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white leading-[0.9] max-w-5xl mx-auto drop-shadow-2xl">
             BENEDICTINE <span className="text-gradient">SISTERS</span> <br /> OF ST AGNES, CHIPOLE
           </h1>
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-medium leading-relaxed">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-xl">
             A growing community of Benedictine Nuns dedicated to prayer and service in the heart of Tanzania.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
@@ -82,6 +122,19 @@ export default function Home() {
               Support Our Mission
             </a>
           </div>
+        </div>
+
+        {/* Hero Slider Dots */}
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+          {heroImages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentHeroIndex(idx)}
+              className={`h-1.5 transition-all duration-300 rounded-full ${
+                currentHeroIndex === idx ? "w-8 bg-white" : "w-2 bg-white/30"
+              }`}
+            />
+          ))}
         </div>
 
         {/* Scroll Indicator */}
@@ -124,7 +177,7 @@ export default function Home() {
               icon={<Cross className="h-8 w-8 text-zinc-400" />}
               text="Seeking God through communal prayer and dedicated service."
               color="border-zinc-200/20"
-              href="#story"
+              href="#health"
             />
           </section>
 
@@ -205,7 +258,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Donation CTA: Redesigned */}
+          {/* Donation CTA */}
           <section id="donate" className="relative group rounded-[4rem] overflow-hidden bg-brand-red py-24 px-8 text-center text-white shadow-3xl reveal">
             <div className="absolute inset-0 bg-[url('/images/farm.jpeg')] bg-cover opacity-20 mix-blend-overlay group-hover:scale-110 transition-transform duration-1000" />
             <div className="relative z-10 max-w-4xl mx-auto space-y-12">
