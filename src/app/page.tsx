@@ -4,6 +4,17 @@ import LanguageSelector from "@/app/components/LanguageSelector";
 import MobileNav from "@/app/components/MobileNav";
 
 const craftImages = [
+  "/images/3d.jpeg",
+  "/images/farm.jpeg",
+  "/images/garden.jpeg",
+  "/images/hall.jpeg",
+  "/images/hall2.jpeg",
+  "/images/sisters.jpeg",
+  "/images/sisters2.jpeg",
+  "/images/sisters3.jpeg",
+  "/images/sisters4.jpeg",
+  "/images/sisters5.jpeg",
+  "/images/trousers.jpeg",
   "/images/IMG_4164.jpg",
   "/images/IMG_4184.jpg",
   "/images/IMG_4192.jpg",
@@ -61,7 +72,7 @@ export default function Home() {
         {/* Visual Hero Area */}
         <div className="relative mb-12 aspect-square w-full overflow-hidden rounded-2xl bg-zinc-200 dark:bg-zinc-800 shadow-2xl sm:mb-16 sm:aspect-[21/9] sm:rounded-3xl">
           <Image
-            src="/images/chipole.jpg"
+            src="/images/trousers.jpeg"
             alt="Chipole Sisters Hero"
             fill
             className="object-cover opacity-100"
