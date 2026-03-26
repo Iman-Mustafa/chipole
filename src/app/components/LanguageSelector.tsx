@@ -31,8 +31,12 @@ export default function LanguageSelector() {
     return (
         <div className="relative" ref={dropdownRef}>
             <button
+                type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-3 rounded-full bg-zinc-100 px-5 py-2.5 text-sm font-bold transition-all hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 shadow-sm border border-zinc-200/50 dark:border-zinc-700/50"
+                aria-expanded={isOpen}
+                aria-haspopup="listbox"
+                aria-label="Language"
+                className="flex items-center gap-3 rounded-full border border-zinc-200/50 bg-zinc-100 px-5 py-2.5 text-sm font-bold shadow-sm transition-colors hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-50 dark:border-zinc-700/50 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus-visible:ring-offset-zinc-950"
             >
                 <Globe className="h-4 w-4 text-zinc-500" />
                 <span>{currentLang.name}</span>
@@ -42,16 +46,23 @@ export default function LanguageSelector() {
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-40 overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-xl dark:border-zinc-800 dark:bg-zinc-900 z-50">
+                <div
+                    className="absolute right-0 z-50 mt-2 w-40 overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-xl dark:border-zinc-800 dark:bg-zinc-900"
+                    role="listbox"
+                    aria-label="Select language"
+                >
                     <div className="py-1">
                         {languages.map((lang) => (
                             <button
+                                type="button"
                                 key={lang.code}
+                                role="option"
+                                aria-selected={currentLang.code === lang.code}
                                 onClick={() => {
                                     setCurrentLang(lang);
                                     setIsOpen(false);
                                 }}
-                                className={`flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm font-medium transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800 ${currentLang.code === lang.code ? "text-brand-red bg-zinc-50 dark:bg-white/5" : "text-zinc-600 dark:text-zinc-400"
+                                className={`flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm font-medium transition-colors hover:bg-zinc-100 focus-visible:bg-zinc-100 focus-visible:outline-none dark:hover:bg-zinc-800 dark:focus-visible:bg-zinc-800 ${currentLang.code === lang.code ? "text-brand-red bg-zinc-50 dark:bg-white/5" : "text-zinc-600 dark:text-zinc-400"
                                     }`}
                             >
                                 <span>{lang.name}</span>
