@@ -11,7 +11,7 @@ export default function AboutSection() {
             <div className="relative h-[400px] w-[80%] rounded-xl overflow-hidden shadow-xl">
               <Image 
                 src="/images/sisters.jpeg" 
-                alt="Doctor working" 
+                alt="Sisters working" 
                 fill 
                 className="object-cover"
               />
@@ -19,7 +19,7 @@ export default function AboutSection() {
             <div className="absolute -bottom-12 -right-4 h-[300px] w-[60%] rounded-xl overflow-hidden shadow-2xl border-8 border-white">
               <Image 
                 src="/images/sisters4.jpeg" 
-                alt="Consultation" 
+                alt="Community life" 
                 fill 
                 className="object-cover"
               />
@@ -29,26 +29,26 @@ export default function AboutSection() {
           {/* Text Right */}
           <div className="lg:pl-8 mt-16 lg:mt-0">
             <div className="inline-block border-b-2 border-brand-red pb-1 mb-4">
-              <span className="text-zinc-600 font-medium tracking-wide text-sm">Welcome to Docmed</span>
+              <span className="text-zinc-600 font-medium tracking-wide text-sm">A Special Welcome</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-zinc-900 mb-6 leading-tight">
-              Best Care For Your <br /> Good Health
+              From our Mother Superior, <br /> Sr. Sairis Msaidizi Mkinga
             </h2>
             <p className="text-zinc-600 mb-8 leading-relaxed">
-              Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing. Apartments frequently or motionless on reasonable projecting expression.
+              I am very happy that you have taken the time to learn about us. We have recently celebrated our 75th Anniversary as a religious community. We are a growing community of Benedictine Nuns:
             </p>
             <ul className="space-y-4 mb-10">
               <li className="flex items-center gap-3 text-zinc-700">
                 <CheckCircle2 className="w-5 h-5 text-brand-red" />
-                <span>Apartments frequently or motionless.</span>
+                <span>Over 350 in Final Profession</span>
               </li>
               <li className="flex items-center gap-3 text-zinc-700">
                 <CheckCircle2 className="w-5 h-5 text-brand-red" />
-                <span>Duis aute irure dolor in reprehenderit in voluptate.</span>
+                <span>Some 130 In Temporary Vows</span>
               </li>
               <li className="flex items-center gap-3 text-zinc-700">
                 <CheckCircle2 className="w-5 h-5 text-brand-red" />
-                <span>Voluptatem quia voluptas sit aspernatur.</span>
+                <span>Around 50 Novices & Candidates</span>
               </li>
             </ul>
             <a href="#" className="inline-block bg-brand-red text-white px-8 py-3 rounded font-medium hover:bg-brand-red/90 transition-colors">

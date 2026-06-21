@@ -1,4 +1,4 @@
-import { Linkedin, Facebook, Twitter, Instagram, Mail, Phone } from "lucide-react";
+import { Linkedin, Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 export default function TopBar() {
   return (
@@ -12,12 +12,8 @@ export default function TopBar() {
         </div>
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
-            <Mail className="w-4 h-4 text-brand-red" />
-            <span>info@docmed.com</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Phone className="w-4 h-4 text-brand-red" />
-            <span>160160</span>
+            <MapPin className="w-4 h-4 text-brand-red" />
+            <span>Songea, Tanzania</span>
           </div>
         </div>
       </div>

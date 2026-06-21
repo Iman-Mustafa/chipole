@@ -1,52 +1,46 @@
-import { HeartPulse, Phone, BriefcaseMedical } from "lucide-react";
+import { HeartPulse, BookOpen, Users } from "lucide-react";
 
 export default function QuickInfoCards() {
   return (
-    <section className="w-full relative z-30 -mt-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 shadow-xl rounded-xl overflow-hidden">
-          {/* Card 1 */}
-          <div className="bg-brand-red p-10 text-white flex flex-col justify-between group transition-colors hover:bg-brand-red/90">
-            <div>
-              <HeartPulse className="w-12 h-12 mb-6 text-white/80" strokeWidth={1.5} />
-              <h3 className="text-2xl font-bold mb-4">Hospitality</h3>
-              <p className="text-white/80 leading-relaxed mb-8">
-                Clinical excellence must be the priority for any health care service provider.
-              </p>
-            </div>
-            <a href="#" className="inline-block border border-white/40 text-white px-6 py-3 rounded hover:bg-white hover:text-brand-red transition-colors self-start font-medium text-sm">
-              Apply For A Bed
-            </a>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-[#a62222] p-10 text-white flex flex-col justify-between group transition-colors hover:bg-[#8f1d1d]">
-            <div>
-              <Phone className="w-12 h-12 mb-6 text-white/80" strokeWidth={1.5} />
-              <h3 className="text-2xl font-bold mb-4">Emergency Care</h3>
-              <p className="text-white/80 leading-relaxed mb-8">
-                Clinical excellence must be the priority for any health care service provider.
-              </p>
-            </div>
-            <a href="tel:+106723563567" className="inline-block border border-white/40 text-white px-6 py-3 rounded hover:bg-white hover:text-[#a62222] transition-colors self-start font-medium text-sm">
-              +10 672 356 3567
-            </a>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-brand-red p-10 text-white flex flex-col justify-between group transition-colors hover:bg-brand-red/90">
-            <div>
-              <BriefcaseMedical className="w-12 h-12 mb-6 text-white/80" strokeWidth={1.5} />
-              <h3 className="text-2xl font-bold mb-4">Chamber Service</h3>
-              <p className="text-white/80 leading-relaxed mb-8">
-                Clinical excellence must be the priority for any health care service provider.
-              </p>
-            </div>
-            <a href="#" className="inline-block border border-white/40 text-white px-6 py-3 rounded hover:bg-white hover:text-brand-red transition-colors self-start font-medium text-sm">
-              Make An Appointment
-            </a>
-          </div>
+    <section className="relative z-30 -mt-20 max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        {/* Card 1 */}
+        <div className="bg-[#a62222] text-white p-10 rounded-xl shadow-xl hover:-translate-y-2 transition-transform duration-300">
+          <HeartPulse className="w-12 h-12 mb-6 opacity-80" />
+          <h3 className="text-2xl font-bold mb-4">Health Care</h3>
+          <p className="text-white/80 mb-6 leading-relaxed">
+            Providing compassionate medical services and healthcare to the community.
+          </p>
+          <a href="#" className="font-medium hover:underline text-sm tracking-wide uppercase">
+            Learn More
+          </a>
         </div>
+
+        {/* Card 2 */}
+        <div className="bg-brand-red text-white p-10 rounded-xl shadow-xl hover:-translate-y-2 transition-transform duration-300">
+          <BookOpen className="w-12 h-12 mb-6 opacity-80" />
+          <h3 className="text-2xl font-bold mb-4">Education</h3>
+          <p className="text-white/80 mb-6 leading-relaxed">
+            Nurturing minds through our Primary, Secondary, and Vocational Training schools.
+          </p>
+          <a href="#" className="font-medium hover:underline text-sm tracking-wide uppercase">
+            Learn More
+          </a>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-zinc-900 text-white p-10 rounded-xl shadow-xl hover:-translate-y-2 transition-transform duration-300">
+          <Users className="w-12 h-12 mb-6 text-brand-red" />
+          <h3 className="text-2xl font-bold mb-4">Orphans & Children</h3>
+          <p className="text-zinc-400 mb-6 leading-relaxed">
+            Caring for orphans and vulnerable children with love and dedication.
+          </p>
+          <a href="#" className="text-brand-red font-medium hover:underline text-sm tracking-wide uppercase">
+            Learn More
+          </a>
+        </div>
+
       </div>
     </section>
   );

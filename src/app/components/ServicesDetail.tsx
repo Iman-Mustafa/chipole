@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { BriefcaseMedical } from "lucide-react";
+import { Sprout } from "lucide-react";
 
 export default function ServicesDetail() {
   return (
@@ -9,13 +9,15 @@ export default function ServicesDetail() {
           {/* Text Left */}
           <div>
             <div className="w-16 h-16 bg-brand-red rounded-full flex items-center justify-center text-white mb-8 shadow-lg">
-              <BriefcaseMedical className="w-8 h-8" />
+              <Sprout className="w-8 h-8" />
             </div>
             <h2 className="text-3xl font-bold text-zinc-900 mb-6">
-              Comprehensive Medical Services
+              The Benedictine Tradition of Self-Sufficiency
             </h2>
             <p className="text-zinc-600 leading-relaxed text-lg">
-              We offer a full range of medical services designed to meet all your healthcare needs. From preventive care and wellness screenings to advanced diagnostic procedures and specialized treatments, our modern facility is equipped to provide exceptional care for you and your family.
+              Almost all of our basic daily needs are met by members of our community. We farm: planting, cultivating and harvesting both our food crops and all necessary staple crops in our gardens. All by hand but most rewarding, because the work is carried out as a community.
+              <br /><br />
+              Our dairy cattle, poultry and hog raising are devotedly carried on daily by our Sisters. Candle making, Hosts, sewing Mass vestments & many other crafts provide additional support.
             </p>
           </div>
 
@@ -23,7 +25,7 @@ export default function ServicesDetail() {
           <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-xl">
             <Image 
               src="/images/sisters3.jpeg" 
-              alt="Medical Services" 
+              alt="Agriculture" 
               fill 
               className="object-cover"
             />
