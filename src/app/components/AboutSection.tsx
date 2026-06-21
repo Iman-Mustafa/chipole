@@ -32,7 +32,7 @@ export default function AboutSection() {
               <span className="text-zinc-600 font-medium tracking-wide text-sm">A Special Welcome</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-zinc-900 mb-6 leading-tight">
-              From our Mother Superior, <br /> Sr. Sairis Msaidizi Mkinga
+              From our Mother Superior, <br /> SR BEATRICE SIMON KAPINGA OSB
             </h2>
             <p className="text-zinc-600 mb-8 leading-relaxed">
               I am very happy that you have taken the time to learn about us. We have recently celebrated our 75th Anniversary as a religious community. We are a growing community of Benedictine Nuns:
